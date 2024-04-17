@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-const SvgComponent = ({style}) => (
+const MestiIcon = ({style}) => (
     <Svg
         xmlns="http://www.w3.org/2000/svg"
         style={style}
@@ -31,4 +31,4 @@ const SvgComponent = ({style}) => (
         />
     </Svg>
 )
-export default SvgComponent
+export default MestiIcon
