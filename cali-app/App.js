@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TextInput, Button, Image, TouchableOpacity } fr
 
 import Login from './screens/Login';
 import Welcome from './screens/Welcome';
+import SignUp from './screens/SignUp';
 
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,6 +21,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Welcome" component={Welcome}/>
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
 

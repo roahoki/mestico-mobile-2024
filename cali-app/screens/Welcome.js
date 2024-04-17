@@ -28,11 +28,11 @@ export default function Welcome({navigation}) {
                     </View>
 
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity style={styles.signInButton} onPress={() => { console.log("Se debe navegar a otra vista"); }}>
+                        <TouchableOpacity style={styles.signInButton} onPress={() => { navigation.navigate('SignUp') }}>
                             <Text style={styles.buttonText}>Registrarse</Text>
                         </TouchableOpacity>
                     </View>
-
+                    
                 </View>
 
             </View>
