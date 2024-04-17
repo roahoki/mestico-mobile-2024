@@ -1,18 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faFacebook, faInstagram, faLinkedin, faXing } from '@fortawesome/free-brands-svg-icons';
 
+import BackArrow from '../components/BackArrow';
 import MestiIcon from '../components/MestiIcon';
 import Checkbox from '../components/CheckBox';
 
 
-export default function Login() {
+export default function Login({navigation}) {
     return (
+        
         <View style={styles.mainContainer}>
 
             <StatusBar style="auto" />
+
+            <View style={styles.header}> 
+                <TouchableOpacity onPress={() => { navigation.navigate('Welcome') }}>
+                    <BackArrow style={styles.iconImage} />
+                </TouchableOpacity>
+            </View>
 
             <View style={styles.formContainer}>
                 <MestiIcon style={styles.iconImage} />
@@ -78,6 +86,15 @@ const styles = StyleSheet.create({
         margin: 'auto',
         flex: 1,
         justifyContent: 'bottom',
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '90%',
+        marginTop: 50,
+        marginHorizontal: 20,
+
     },
     formContainer: {
         borderTopLeftRadius: 60,
