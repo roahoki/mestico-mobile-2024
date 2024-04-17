@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Image, TouchableOpacity } from 'react-native';
 import MestiIcon from '../components/MestiIcon';
 
-export default function Welcome() {
+export default function Welcome({navigation}) {
     return (
         <View style={styles.mainContainer}>
             <StatusBar style="auto" />
@@ -22,7 +22,7 @@ export default function Welcome() {
 
                 <View style={styles.bottomContainer}>
                     <View style={styles.buttonContainer}>
-                        <TouchableOpacity style={styles.signInButton} onPress={() => { console.log("Se debe navegar a otra vista"); }}>
+                        <TouchableOpacity style={styles.signInButton} onPress={() => { navigation.navigate('Login') }}>
                             <Text style={styles.buttonText}>Iniciar Sesión</Text>
                         </TouchableOpacity>
                     </View>

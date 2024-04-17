@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     inputLabel: {
-        fontFamily: "Montserrat",
         fontWeight: "bold",
         marginVertical: 10,
         fontSize: 15,
