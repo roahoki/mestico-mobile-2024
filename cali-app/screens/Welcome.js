@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     bottomContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        bottom: 100,
+        bottom: 110,
         position: 'absolute',
 
     },

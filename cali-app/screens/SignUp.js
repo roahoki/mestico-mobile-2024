@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 
 const SignUpScreen = () => {
   const [nombre, setNombre] = useState("");
@@ -67,198 +67,243 @@ const SignUpScreen = () => {
   };
 
   return (
-    <View style={{ flex: 1, padding: 30 }}>
-      <View style={{ alignItems: "center" }}>
-        <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 10 }}>
+    <View style={styles.mainContainer}>
+
+      <View style={styles.titleContainer}>
+        <Text style={styles.titleText}>
           Crea tu perfil
         </Text>
       </View>
 
-      <Text style={{ fontSize: 16, marginBottom: 5 }}>Nombre</Text>
-      <TextInput
-        style={[
-          {
-            borderWidth: 1,
-            borderColor: errors.nombre ? "red" : "gray",
-            padding: 10,
-            marginBottom: 10,
-            borderRadius: 25,
-          },
-        ]}
-        placeholder="Nombre"
-        value={nombre}
-        onChangeText={setNombre}
-        accessibilityLabel="Nombre"
-      />
-      {errors.nombre && (
-        <Text style={{ color: "red", marginBottom: 10 }}>{errors.nombre}</Text>
-      )}
+      <View style={styles.formContainer}>
+        <View style={styles.midContainer}> 
+        
+          <Text style={styles.inputLabel}>Nombre</Text>
+          <TextInput
+            style={[
+              styles.inputField,
+            ]}
+            placeholder="Nombre"
+            value={nombre}
+            onChangeText={setNombre}
+            accessibilityLabel="Nombre"
+          />
+          {errors.nombre && (
+            <Text style={{ color: "red", marginBottom: 10 }}>{errors.nombre}</Text>
+          )}
 
-      <Text style={{ fontSize: 16, marginBottom: 5 }}>Apellido</Text>
-      <TextInput
-        style={[
-          {
-            borderWidth: 1,
-            borderColor: errors.apellido ? "red" : "gray",
-            padding: 10,
-            marginBottom: 10,
-            borderRadius: 25,
-          },
-        ]}
-        placeholder="Apellido"
-        value={apellido}
-        onChangeText={setApellido}
-        accessibilityLabel="Apellido"
-      />
-      {errors.apellido && (
-        <Text style={{ color: "red", marginBottom: 10 }}>
-          {errors.apellido}
-        </Text>
-      )}
+            <Text style={styles.inputLabel}>Apellido</Text>
+          <TextInput
+            style={[
+                styles.inputField,
+            ]}
+            placeholder="Apellido"
+            value={apellido}
+            onChangeText={setApellido}
+            accessibilityLabel="Apellido"
+          />
+          {errors.apellido && (
+            <Text style={{ color: "red", marginBottom: 10 }}>
+              {errors.apellido}
+            </Text>
+          )}
 
-      <Text style={{ fontSize: 16, marginBottom: 5 }}>Teléfono</Text>
-      <TextInput
-        style={[
-          {
-            borderWidth: 1,
-            borderColor: errors.telefono ? "red" : "gray",
-            padding: 10,
-            marginBottom: 10,
-            borderRadius: 25,
-          },
-        ]}
-        placeholder="+56"
-        value={telefono}
-        onChangeText={setTelefono}
-        keyboardType="phone-pad"
-        accessibilityLabel="Teléfono"
-      />
-      {errors.telefono && (
-        <Text style={{ color: "red", marginBottom: 10 }}>
-          {errors.telefono}
-        </Text>
-      )}
+            <Text style={styles.inputLabel}>Teléfono</Text>
+          <TextInput
+            style={[
+                styles.inputField,
+            ]}
+            placeholder="+56"
+            value={telefono}
+            onChangeText={setTelefono}
+            keyboardType="phone-pad"
+            accessibilityLabel="Teléfono"
+          />
+          {errors.telefono && (
+            <Text style={{ color: "red", marginBottom: 10 }}>
+              {errors.telefono}
+            </Text>
+          )}
 
-      <Text style={{ fontSize: 16, marginBottom: 5 }}>Email</Text>
-      <TextInput
-        style={[
-          {
-            borderWidth: 1,
-            borderColor: errors.email ? "red" : "gray",
-            padding: 10,
-            marginBottom: 10,
-            borderRadius: 25,
-          },
-        ]}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        accessibilityLabel="Email"
-      />
-      {errors.email && (
-        <Text style={{ color: "red", marginBottom: 10 }}>{errors.email}</Text>
-      )}
+            <Text style={styles.inputLabel}>Email</Text>
+          <TextInput
+            style={[
+                styles.inputField,
+            ]}
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+            accessibilityLabel="Email"
+          />
+          {errors.email && (
+            <Text style={{ color: "red", marginBottom: 10 }}>{errors.email}</Text>
+          )}
 
-      <Text style={{ fontSize: 16, marginBottom: 5 }}>Contraseña</Text>
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <TextInput
-          style={[
-            {
-              flex: 1,
-              borderWidth: 1,
-              borderColor: errors.password ? "red" : "gray",
-              padding: 10,
-              marginBottom: 10,
-              borderRadius: 25,
-            },
-          ]}
-          placeholder="Contraseña"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry={!showPassword}
-          accessibilityLabel="Contraseña"
-        />
-        <TouchableOpacity
-          style={{
-            borderWidth: 1,
-            borderColor: "gray",
-            padding: 5,
-            borderRadius: 5,
-            marginLeft: 10,
-          }}
-          onPress={() => setShowPassword(!showPassword)}
-        >
-          <Text>{showPassword ? "Ocultar" : "Mostrar"}</Text>
-        </TouchableOpacity>
+            <Text style={styles.inputLabel}>Contraseña</Text>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <TextInput
+              style={[
+                  styles.inputField,
+              ]}
+              placeholder="Contraseña"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={!showPassword}
+              accessibilityLabel="Contraseña"
+            />
+            <TouchableOpacity
+              style={{
+                borderWidth: 1,
+                borderColor: "#E34D95",
+                padding: 5,
+                borderRadius: 5,
+                marginLeft: 10,
+              }}
+              onPress={() => setShowPassword(!showPassword)}
+            >
+              <Text>{showPassword ? "Ocultar" : "Mostrar"}</Text>
+            </TouchableOpacity>
+          </View>
+          {errors.password && (
+            <Text style={{ color: "red", marginBottom: 10 }}>
+              {errors.password}
+            </Text>
+          )}
+
+            <Text style={styles.inputLabel}>Repetir Contraseña</Text>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <TextInput
+              style={[
+                  styles.inputField
+              ]}
+              placeholder="Repetir Contraseña"
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
+              secureTextEntry={!showConfirmPassword}
+              accessibilityLabel="Repetir Contraseña"
+            />
+            <TouchableOpacity
+              style={{
+                borderWidth: 1,
+                borderColor: "#E34D95",
+                padding: 5,
+                borderRadius: 5,
+                marginLeft: 10,
+                
+              }}
+              onPress={() => setShowConfirmPassword(!showConfirmPassword)}
+            >
+              <Text>{showConfirmPassword ? "Ocultar" : "Mostrar"}</Text>
+            </TouchableOpacity>
+          </View>
+          {errors.confirmPassword && (
+            <Text style={{ color: "red", marginBottom: 10 }}>
+              {errors.confirmPassword}
+            </Text>
+          )}
+          
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={handleSignUp}
+            disabled={
+              !nombre ||
+              !apellido ||
+              !telefono ||
+              !email ||
+              !password ||
+              !confirmPassword
+            }
+          >
+            <Text style={styles.buttonText}>
+              Registrarse
+            </Text>
+          </TouchableOpacity>
+
+        </View>
       </View>
-      {errors.password && (
-        <Text style={{ color: "red", marginBottom: 10 }}>
-          {errors.password}
-        </Text>
-      )}
-
-      <Text style={{ fontSize: 16, marginBottom: 5 }}>Repetir Contraseña</Text>
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <TextInput
-          style={[
-            {
-              flex: 1,
-              borderWidth: 1,
-              borderColor: errors.confirmPassword ? "red" : "gray",
-              padding: 10,
-              marginBottom: 20,
-              borderRadius: 25,
-            },
-          ]}
-          placeholder="Repetir Contraseña"
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-          secureTextEntry={!showConfirmPassword}
-          accessibilityLabel="Repetir Contraseña"
-        />
-        <TouchableOpacity
-          style={{
-            borderWidth: 1,
-            borderColor: "gray",
-            padding: 5,
-            borderRadius: 5,
-            marginLeft: 10,
-          }}
-          onPress={() => setShowConfirmPassword(!showConfirmPassword)}
-        >
-          <Text>{showConfirmPassword ? "Ocultar" : "Mostrar"}</Text>
-        </TouchableOpacity>
-      </View>
-      {errors.confirmPassword && (
-        <Text style={{ color: "red", marginBottom: 10 }}>
-          {errors.confirmPassword}
-        </Text>
-      )}
-
-      <TouchableOpacity
-        style={{
-          backgroundColor: "#FF1493",
-          padding: 15,
-          alignItems: "center",
-          borderRadius: 25,
-        }}
-        onPress={handleSignUp}
-        disabled={
-          !nombre ||
-          !apellido ||
-          !telefono ||
-          !email ||
-          !password ||
-          !confirmPassword
-        }
-      >
-        <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
-          Registrarse
-        </Text>
-      </TouchableOpacity>
     </View>
+
+
   );
 };
 
+const styles = StyleSheet.create({
+  mainContainer: {
+    backgroundColor: '#E34D95',
+    width: 'auto',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    margin: 'auto',
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  titleContainer: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '90%',
+    marginTop: 70,
+    marginHorizontal: 20,
+
+  },
+  titleText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+  },
+  formContainer: {
+    borderTopLeftRadius: 60,
+    borderTopRightRadius: 60,
+    backgroundColor: '#FFFFFF',
+    display: 'flex',
+    marginTop: 'auto',
+    width: 'auto',
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: '85%',
+    paddingLeft: 42,
+  },
+  midContainer: {
+    width: '100%',
+    marginTop: 20,
+    alignSelf: 'flex-start',
+    alignItems: 'flex-start',
+    marginEnd: 20,
+  },
+  inputLabel: {
+    fontWeight: "bold",
+    marginVertical: 10,
+    fontSize: 15,
+  },
+  inputField: {
+    borderRadius: 100,
+    borderColor: "#E1E1E1",
+    borderWidth: 1,
+    backgroundColor: "#FFF",
+    padding: 14,
+    fontSize: 15,
+    color: "#CACACA",
+    width: "80%",
+  },
+  buttonContainer: {
+    width: "90%",
+    height: 45,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: '#E34D95',
+    top: 70,
+  },
+  buttonText: {
+    fontSize: 15,
+    color: 'white',
+
+  },
+});
+
+
 export default SignUpScreen;
+
+
+
+
